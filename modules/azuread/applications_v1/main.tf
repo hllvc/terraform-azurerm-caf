@@ -3,19 +3,13 @@
 #
 #
 #
+#
+module "caf" {
+  source  = "aztfmod/caf/azurerm"
+  version = "5.3.11"
 
-# Module for the CAf variable azuread_applications
-module "azuread_applications_v1" {
-  source   = "./azuread_applications_v1"
-  # for_each = local.azuread.azuread_applications
+  global_settings = var.global_settings
+  resource_groups = var.resource_groups
+  azuread_apps    = var.azuread_apps
 
-  azuread_api_permissions = try(local.azuread.azuread_api_permissions[each.key], {})
-  client_config           = local.client_config
-  global_settings         = local.global_settings
-  settings                = each.value
-  user_type               = var.user_type
-}
-
-output "azuread_applications" {
-  value = module.azuread_applications_v1
 }

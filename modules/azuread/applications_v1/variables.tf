@@ -1,13 +1,9 @@
 variable "global_settings" {
   default = {}
 }
-variable "settings" {
+variable "resource_groups" {
   default = {}
 }
-variable "client_config" {
-  description = "Client configuration object (see module README.md)."
-}
-variable "azuread_api_permissions" {
+variable "azuread_apps" {
   default = {}
 }
-variable "user_type" {}
